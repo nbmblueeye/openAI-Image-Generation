@@ -82,6 +82,7 @@ const PaypalModal = ({status, setShowPapal, setForm}:Props) => {
       }
   }
  
+
   return (
     <div className={`fixed left-0 right-0 top-0 bottom-0 bg-[#00000033] ${status ? "flex":"hidden"} justify-center items-center z-40`}>
       <div className="bg-white w-[500px] max-h-[95%] p-10 rounded z-50 relative block overflow-y-scroll">
