@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from 'dotenv';
+import cors from 'cors';
 dotenv.config();
 import path from "path";
 import postRoute from "./routes/postRoute.js";
@@ -15,6 +16,7 @@ openAIDbConn();
 // host static files
 app.use(express.static("client"));
 
+app.use(cors());
 app.use(express.json({ limit: '100mb' }));
 app.use(express.urlencoded({ extended: false }));
 
@@ -34,7 +36,7 @@ if(process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
         res.send("Server connection")
     });
-    
+
 }else{
     app.get("/", (req, res) => {
         res.send('API is running....')
