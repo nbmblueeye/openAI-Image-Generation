@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Loader } from '../components/Loader';
 import Card from '../components/Card';
 import Pagination from '../components/Pagination';
@@ -26,7 +26,7 @@ const Home = () => {
         
         let datas = await response.json();
         setDatas(datas.data);
-        
+        console.log(datas);
       } catch (error) {
         console.log(error);
       }finally{
@@ -44,7 +44,6 @@ const Home = () => {
 
 
   const handleSearchFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
-     
     clearTimeout(clearSearchTimeOut);
     let search = e.target.value;
     setSearchParams(search);
@@ -55,7 +54,6 @@ const Home = () => {
         console.log(searchParams);
       }, 200)
     );
-      
   }
   
   return (
