@@ -26,7 +26,6 @@ const Home = () => {
         
         let datas = await response.json();
         setDatas(datas.data);
-        console.log(datas);
       } catch (error) {
         console.log(error);
       }finally{
