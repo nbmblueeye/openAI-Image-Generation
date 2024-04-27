@@ -26,14 +26,12 @@ app.post("/api/orders", handleOrder);
 app.post("/api/orders/:orderID/capture", handleCaptureOrder);
 
 if(process.env.NODE_ENV === "production") {
-    
     let __dirname = path.resolve();
     app.use(express.static(path.join(__dirname, "/client/dist")));
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
-        res.send("Server connection")
+        res.send("Server connection");
     });
-
 }else{
     app.get("/", (req, res) => {
         res.send('API is running....')
