@@ -116,6 +116,7 @@ const PaypalModal = ({status, setShowPapal, setForm}:Props) => {
       </div>
     </div>
   )
+
 }
 
 export default PaypalModal

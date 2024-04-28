@@ -13,7 +13,7 @@ const Detail = () => {
     if(id){
       let getDetail = async() => {
         try {
-          let response = await fetch(`/api/v1/post/${id}`, {
+          let response = await fetch(`https://openai-image-generation-production.up.railway.app/api/v1/post/${id}`, {
             method:"GET",
             headers:{
               'Content-type': 'application/json',

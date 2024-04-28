@@ -34,7 +34,7 @@ const Post = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      let response = await fetch("/api/v1/openai/", {
+      let response = await fetch("https://openai-image-generation-production.up.railway.app/api/v1/openai/", {
         method:"POST",
         headers:{
           'Content-type': 'application/json',
@@ -69,7 +69,7 @@ const Post = () => {
     setSaving(true);
     if(form.image.indexOf(";base64,") !== -1){
       try {
-        const response = await fetch("/api/v1/post/", {
+        const response = await fetch("https://openai-image-generation-production.up.railway.app/api/v1/post/", {
           method:"POST",
           headers:{
             'Content-type': 'application/json',
@@ -118,7 +118,7 @@ const Post = () => {
           </p>
         }
         <label htmlFor="description" className="flex flex-col items-start flex-wrap mb-4">
-          <span className="text-black font-base text-[18px] mb-2">Please write your Description of Image to make Image</span>
+          <span className="text-black font-base text-base md:text-lg mb-2">Please write your Description of Image to make Image</span>
           <textarea id="description" name="description" rows={2} placeholder="Please leave Image Description" className={`bg-white focus:bg-slate-100 text-black text-[16px] flex-1 w-full p-3 rounded-md border ${formErr.description ? "border-rose-500":"border-black"} outline-none placeholder:text-slate-300`} value={form.description} onChange={(e) => onTextareaChange(e)}/>                
         </label>
         <div className="my-10 w-[300px] h-[300px] border rounded flex justify-center items-center bg-[#00000033] z-0">
@@ -174,7 +174,7 @@ const Post = () => {
           </div>   
         }
       </form>
-        <PaypalModal status={showPapal} setShowPapal={setShowPapal} form={form} setForm={setForm}/>
+      <PaypalModal status={showPapal} setShowPapal={setShowPapal} form={form} setForm={setForm}/>
     </div>
   )
 }

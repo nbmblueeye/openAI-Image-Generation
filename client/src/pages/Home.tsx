@@ -17,7 +17,7 @@ const Home = () => {
     let getDatas = async() => {
       setLoading(true);
       try {
-        let response = await fetch(`/api/v1/post`, {
+        let response = await fetch(`https://openai-image-generation-production.up.railway.app/api/v1/post`, {
           method:"GET",
           headers:{
             'Content-type': 'application/json',
@@ -41,7 +41,6 @@ const Home = () => {
     }
   }, []);
 
-
   const handleSearchFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(clearSearchTimeOut);
     let search = e.target.value;
@@ -57,7 +56,7 @@ const Home = () => {
   
   return (
     <div className='container max-w-7xl mx-auto w-full min-h-[calc(100vh-70px)] py-[30px]'>
-      <h1 className='font-sans font-bold text-2xl mb-4'>The Available Image were created by OpenAI</h1>
+      <h1 className='font-sans font-bold text-lg md:text-2xl mb-4'>The Available Image were created by OpenAI</h1>
       <p className='font-sans font-normal text-base mb-4'>
         MidJourney and DALL-E are taking over social media. Dive into the world of artificial intelligence and build your own version of these tools that can generate everything from memes and art to beautiful UI/UX designs!
       </p>
